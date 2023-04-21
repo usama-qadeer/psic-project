@@ -505,8 +505,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
       case 1:
         return InkWell(
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const ProgramScreenPage()));
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ProgramScreenPage()));
           },
           child: Container(
             margin: EdgeInsets.only(top: 10.h, right: 10.w),

@@ -8,7 +8,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../widgets/custom_navigation_bar.dart';
 
 class ProgramScreenPage extends StatefulWidget {
-  const ProgramScreenPage({Key? key}) : super(key: key);
+  ProgramScreenPage(
+      {Key? key,
+      this.sessions,
+      this.hallIndex,
+      this.sessionIndex,
+      this.allSessionsList,
+      this.comingFrom,
+      this.program})
+      : super(key: key);
+  HallSessions? sessions;
+  dynamic hallIndex;
+  dynamic sessionIndex;
+  dynamic comingFrom;
+  List<HallSessions>? allSessionsList;
+  dynamic program;
 
   @override
   State<ProgramScreenPage> createState() => _ProgramScreenPageState();
@@ -703,13 +717,32 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                           SizedBox(
                                                                             width:
                                                                                 MediaQuery.of(context).size.width * 0.8,
+                                                                            // child: Text(
+                                                                            //   widget.sessions?.sessionTimeSlots!.elementAt(index).time ?? '',
+                                                                            //   style: TextStyle(
+                                                                            //     color: Color(0xff8e3434),
+                                                                            //     fontWeight: FontWeight.w700,
+                                                                            //   ),
+                                                                            // )
                                                                             child:
-                                                                                Text(
-                                                                              mysavedData.data?.elementAt(indexList2).description ?? '',
-                                                                              style: const TextStyle(
-                                                                                color: Color(0xff8e3434),
-                                                                                fontWeight: FontWeight.w700,
-                                                                              ),
+                                                                                Row(
+                                                                              children: [
+                                                                                Container(
+                                                                                  margin: const EdgeInsets.symmetric(vertical: 10),
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: const Color(0xff8e3434),
+                                                                                    borderRadius: BorderRadius.circular(10),
+                                                                                  ),
+                                                                                  padding: const EdgeInsets.all(10),
+                                                                                  child: Text(
+                                                                                    mysavedData.data?.elementAt(indexList2).caseTime ?? '',
+                                                                                    style: const TextStyle(
+                                                                                      color: Colors.white,
+                                                                                      fontWeight: FontWeight.w700,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
                                                                             ),
                                                                           ),
                                                                         ],
