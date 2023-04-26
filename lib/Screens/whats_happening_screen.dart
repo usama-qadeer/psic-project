@@ -126,6 +126,7 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                       print('Time: $time');
                                       print('EndTime: $endTime');
                                       print('Date: $date');
+                                      //  if (condition) {}
 
                                       // if (time >= DateTime.now().month &&
                                       //     (snapshot.data!
