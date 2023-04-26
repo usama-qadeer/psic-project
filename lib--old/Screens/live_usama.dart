@@ -1,16 +1,17 @@
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class PakLiveHallA extends StatefulWidget {
+class LiveUsama extends StatefulWidget {
   @override
-  State<PakLiveHallA> createState() => _PakLiveHallAState();
+  State<LiveUsama> createState() => _LiveUsamaState();
 }
 
-class _PakLiveHallAState extends State<PakLiveHallA> {
-  // const PakLiveHallA({super.key});
+class _LiveUsamaState extends State<LiveUsama> {
+  // const LiveUsama({super.key});
   late YoutubePlayerController _controller;
   late TextEditingController _idController;
   late TextEditingController _seekToController;
@@ -22,18 +23,16 @@ class _PakLiveHallAState extends State<PakLiveHallA> {
   bool _isPlayerReady = false;
 
   final List<String> _ids = [
-    // 'nPt8bK2gbaU',// Random For Testing....
-    // 'gQDByCdjUXw',// Random For Testing....
-    // 'iLnmTe5Q2Qw',// Random For Testing....
-    // '_WoCV4c6XOE',// Random For Testing....
-    // 'KmzdUe0RSJo',// Random For Testing....
-    // '6jZDSSZZxjQ',// Random For Testing....
-    // 'p2lYr3vM_1w',// Random For Testing....
-    // '7QUtEmBT_-w',// Random For Testing....
-    // '34_PXCzGw1M',// Random For Testing....
-    'xVM41cld7dM', //PSIC link
-
-    // 'sUKwTVAc0Vo'// ary live for testing purpose
+    // 'nPt8bK2gbaU',
+    // 'gQDByCdjUXw',
+    // 'iLnmTe5Q2Qw',
+    // '_WoCV4c6XOE',
+    // 'KmzdUe0RSJo',
+    // '6jZDSSZZxjQ',
+    // 'p2lYr3vM_1w',
+    // '7QUtEmBT_-w',
+    // '34_PXCzGw1M',
+    'xVM41cld7dM',
   ];
   @override
   void initState() {
@@ -42,10 +41,10 @@ class _PakLiveHallAState extends State<PakLiveHallA> {
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(
         mute: false,
-        autoPlay: false,
+        autoPlay: true,
         disableDragSeek: false,
         loop: false,
-        isLive: true,
+        isLive: false,
         forceHD: false,
         enableCaption: true,
       ),

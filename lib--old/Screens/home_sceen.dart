@@ -285,7 +285,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                                   onTap: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) => LiveScreen1(),
+                                        builder: (context) => PakLiveHallA(),
                                       ),
                                     );
                                   },
@@ -326,7 +326,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                                   onTap: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) => LiveScreen2(),
+                                        builder: (context) => PakLiveHallB(),
                                       ),
                                     );
                                   },
@@ -367,7 +367,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                                   onTap: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) => LiveScreen(),
+                                        builder: (context) => PakLiveHallC(),
                                       ),
                                     );
                                   },

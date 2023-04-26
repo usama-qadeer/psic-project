@@ -135,7 +135,7 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                       //         ? false
                                       //         : DateTime.now().day == date))
 
-                                      if (endTime < DateTime.now().hour &&
+                                      if (endTime > DateTime.now().hour &&
                                           DateTime.now().day == date) {
                                         return Padding(
                                           padding:

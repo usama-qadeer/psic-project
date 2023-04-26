@@ -827,7 +827,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                                   .elementAt(index)
                                                   .facilitatorsSpeakers ==
                                               null
-                                          ? 'null'
+                                          ? ''
                                           : widget.sessions!.sessionTimeSlots!
                                               .elementAt(index)
                                               .facilitatorsSpeakers!
@@ -849,9 +849,6 @@ class _SessionDetailState extends State<SessionDetail> {
                                     ),
                                   ),
                                 ],
-                              ),
-                              SizedBox(
-                                height: 20,
                               ),
                               Visibility(
                                 visible:

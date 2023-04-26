@@ -7,14 +7,14 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import '../widgets/custom_navigation_bar.dart';
 
-class LiveScreen2 extends StatefulWidget {
-  const LiveScreen2({Key? key}) : super(key: key);
+class LiveScreen1 extends StatefulWidget {
+  const LiveScreen1({Key? key}) : super(key: key);
 
   @override
-  State<LiveScreen2> createState() => _LiveScreen2State();
+  State<LiveScreen1> createState() => _LiveScreen1State();
 }
 
-class _LiveScreen2State extends State<LiveScreen2> {
+class _LiveScreen1State extends State<LiveScreen1> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   var isLoading = true;
@@ -75,7 +75,7 @@ class _LiveScreen2State extends State<LiveScreen2> {
               child: Stack(
                 children: [
                   WebView(
-                    initialUrl: "https://www.youtube.com/embed/9DPusaWygNo",
+                    initialUrl: 'https://www.youtube.com/watch?v=rE1n8-h6NnM',
                     javascriptMode: JavascriptMode.unrestricted,
                     onWebViewCreated: (WebViewController webViewController) {
                       _controller.complete(webViewController);

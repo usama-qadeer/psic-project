@@ -1,24 +1,23 @@
+// ignore_for_file: must_be_immutable
+
 import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../widgets/custom_navigation_bar.dart';
-
-class LiveScreen2 extends StatefulWidget {
-  const LiveScreen2({Key? key}) : super(key: key);
-
+class LoginScreen extends StatefulWidget {
+  LoginScreen({Key? key, this.link, required this.title}) : super(key: key);
+  dynamic link;
+  dynamic title;
   @override
-  State<LiveScreen2> createState() => _LiveScreen2State();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LiveScreen2State extends State<LiveScreen2> {
+class _LoginScreenState extends State<LoginScreen> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   var isLoading = true;
-
   @override
   void initState() {
     super.initState();
@@ -26,20 +25,19 @@ class _LiveScreen2State extends State<LiveScreen2> {
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
   }
 
-  final formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      resizeToAvoidBottomInset: false,
-      bottomNavigationBar: const CustomNavigationBar(),
       body: Padding(
-        padding: const EdgeInsets.only(top: 34),
+        padding: const EdgeInsets.only(
+          top: 40,
+        ),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(
+                top: 10,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -53,9 +51,9 @@ class _LiveScreen2State extends State<LiveScreen2> {
                       size: 30,
                     ),
                   ),
-                  const Text(
-                    'Watch Live',
-                    style: TextStyle(
+                  Text(
+                    '${widget.title}',
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -69,13 +67,16 @@ class _LiveScreen2State extends State<LiveScreen2> {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.62.h,
+              height: MediaQuery.of(context).size.height * 0.88,
               width: double.infinity,
               child: Stack(
                 children: [
                   WebView(
-                    initialUrl: "https://www.youtube.com/embed/9DPusaWygNo",
+                    initialUrl: '${widget.link}',
                     javascriptMode: JavascriptMode.unrestricted,
                     onWebViewCreated: (WebViewController webViewController) {
                       _controller.complete(webViewController);
@@ -98,7 +99,7 @@ class _LiveScreen2State extends State<LiveScreen2> {
                       : Stack(),
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),

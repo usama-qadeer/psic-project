@@ -691,45 +691,17 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                             ),
                                                                           ),
                                                                         ),
-
-                                                                        /// Fahad Changes
-
-                                                                        Container(
-                                                                          // margin:
-                                                                          //     const EdgeInsets.symmetric(vertical: 10),
-                                                                          decoration:
-                                                                              BoxDecoration(
+                                                                        Text(
+                                                                          mysavedData.data?.elementAt(indexList2).caseTime ??
+                                                                              '',
+                                                                          style:
+                                                                              const TextStyle(
                                                                             color:
-                                                                                const Color(0xff8e3434),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(10),
-                                                                          ),
-                                                                          padding:
-                                                                              const EdgeInsets.all(10),
-                                                                          child:
-                                                                              Text(
-                                                                            mysavedData.data?.elementAt(indexList2).caseTime ??
-                                                                                '',
-                                                                            style:
-                                                                                const TextStyle(
-                                                                              color: Colors.white,
-                                                                              fontWeight: FontWeight.w700,
-                                                                            ),
+                                                                                Colors.grey,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
                                                                           ),
                                                                         ),
-
-                                                                        /// Fahad Changes
-                                                                        // Text(
-                                                                        //   mysavedData.data?.elementAt(indexList2).caseTime ??
-                                                                        //       '',
-                                                                        //   style:
-                                                                        //       const TextStyle(
-                                                                        //     color:
-                                                                        //         Colors.grey,
-                                                                        //     fontWeight:
-                                                                        //         FontWeight.w700,
-                                                                        //   ),
-                                                                        // ),
                                                                       ],
                                                                     ),
                                                                     Padding(
@@ -751,37 +723,26 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                             //     color: Color(0xff8e3434),
                                                                             //     fontWeight: FontWeight.w700,
                                                                             //   ),
-                                                                            // )
+                                                                            // ),
                                                                             child:
-                                                                                SingleChildScrollView(
-                                                                              scrollDirection: Axis.horizontal,
-                                                                              child: Row(
-                                                                                children: [
-                                                                                  /// Fahad Changes
-                                                                                  // Container(
-                                                                                  //   // margin: const EdgeInsets.symmetric(vertical: 10),
-                                                                                  //   decoration: BoxDecoration(
-                                                                                  //     color: const Color(0xff8e3434),
-                                                                                  //     borderRadius: BorderRadius.circular(10),
-                                                                                  //   ),
-                                                                                  //   padding: const EdgeInsets.all(10),
-                                                                                  //   child: Text(
-                                                                                  //     mysavedData.data?.elementAt(indexList2).caseName ?? '',
-                                                                                  //     style: const TextStyle(
-                                                                                  //       color: Colors.white,
-                                                                                  //       fontWeight: FontWeight.w700,
-                                                                                  //     ),
-                                                                                  //   ),
-                                                                                  // ),
-                                                                                  Text(
-                                                                                    mysavedData.data?.elementAt(indexList2).caseName ?? '',
+                                                                                Row(
+                                                                              children: [
+                                                                                Container(
+                                                                                  margin: const EdgeInsets.symmetric(vertical: 10),
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: const Color(0xff8e3434),
+                                                                                    borderRadius: BorderRadius.circular(10),
+                                                                                  ),
+                                                                                  padding: const EdgeInsets.all(10),
+                                                                                  child: Text(
+                                                                                    mysavedData.data?.elementAt(indexList2).caseTime ?? '',
                                                                                     style: const TextStyle(
-                                                                                      color: Colors.black,
+                                                                                      color: Colors.white,
                                                                                       fontWeight: FontWeight.w700,
                                                                                     ),
                                                                                   ),
-                                                                                ],
-                                                                              ),
+                                                                                ),
+                                                                              ],
                                                                             ),
                                                                           ),
                                                                         ],
@@ -821,41 +782,26 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                             prefs.setBool('setProgram',
                                                                                 false);
                                                                           },
-
-                                                                          /// Fahad changes
-                                                                          // child:
-                                                                          //     Container(
-                                                                          //   height:
-                                                                          //       MediaQuery.of(context).size.height * 0.05,
-                                                                          //   width:
-                                                                          //       MediaQuery.of(context).size.width * 0.4,
-                                                                          //   decoration:
-                                                                          //       BoxDecoration(
-                                                                          //     borderRadius: BorderRadius.circular(8),
-                                                                          //     color: const Color(0xff8e3434),
-                                                                          //   ),
-                                                                          //   child:
-                                                                          //       const Center(
-                                                                          //     child: Text(
-                                                                          //       '- Remove',
-                                                                          //       style: TextStyle(
-                                                                          //         color: Colors.white,
-                                                                          //       ),
-                                                                          //     ),
-                                                                          //   ),
-                                                                          // ),
                                                                           child:
-                                                                              Row(
-                                                                            children: [
-                                                                              // const Icon(
-                                                                              //   Icons.remove,
-                                                                              //   color: Color(0xff8e3434),
-                                                                              // ),
-                                                                              Text(
+                                                                              Container(
+                                                                            height:
+                                                                                MediaQuery.of(context).size.height * 0.05,
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.4,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              color: const Color(0xff8e3434),
+                                                                            ),
+                                                                            child:
+                                                                                const Center(
+                                                                              child: Text(
                                                                                 'Remove',
-                                                                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Color(0xff8e3434)),
-                                                                              )
-                                                                            ],
+                                                                                style: TextStyle(
+                                                                                  color: Colors.white,
+                                                                                ),
+                                                                              ),
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ],

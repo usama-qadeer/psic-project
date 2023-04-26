@@ -428,7 +428,7 @@ class SessionTimeSlots {
 class FacilitatorsSpeakers {
   SessionModerator? facilitatorSpeaker;
 
-  FacilitatorsSpeakers({required this.facilitatorSpeaker});
+  FacilitatorsSpeakers({this.facilitatorSpeaker});
 
   FacilitatorsSpeakers.fromJson(Map<String, dynamic> json) {
     facilitatorSpeaker = json['facilitator_speaker'] != false
@@ -443,8 +443,4 @@ class FacilitatorsSpeakers {
     }
     return data;
   }
-}
-
-class YouTubeLink {
-  String? link;
 }

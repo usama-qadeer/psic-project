@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'dart:async';
 import 'dart:io';
 
@@ -7,18 +9,20 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import '../widgets/custom_navigation_bar.dart';
 
-class LiveScreen2 extends StatefulWidget {
-  const LiveScreen2({Key? key}) : super(key: key);
+class ContactScreen extends StatefulWidget {
+  ContactScreen({Key? key, this.link, required this.title}) : super(key: key);
+  dynamic link;
+  dynamic title;
 
   @override
-  State<LiveScreen2> createState() => _LiveScreen2State();
+  State<ContactScreen> createState() => _ContactScreenState();
 }
 
-class _LiveScreen2State extends State<LiveScreen2> {
+class _ContactScreenState extends State<ContactScreen> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   var isLoading = true;
-
+  bool _keyboardVisible = false;
   @override
   void initState() {
     super.initState();
@@ -26,20 +30,21 @@ class _LiveScreen2State extends State<LiveScreen2> {
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
   }
 
-  final formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
+    _keyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
-      backgroundColor: Colors.white,
-      resizeToAvoidBottomInset: false,
-      bottomNavigationBar: const CustomNavigationBar(),
+      bottomNavigationBar: const CustomNavigationBar(
+        onDashboardResponse: true,
+      ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 34),
+        padding: const EdgeInsets.only(top: 40),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(
+                top: 10,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -53,9 +58,9 @@ class _LiveScreen2State extends State<LiveScreen2> {
                       size: 30,
                     ),
                   ),
-                  const Text(
-                    'Watch Live',
-                    style: TextStyle(
+                  Text(
+                    '${widget.title}',
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -69,13 +74,18 @@ class _LiveScreen2State extends State<LiveScreen2> {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.62.h,
+              height: _keyboardVisible
+                  ? MediaQuery.of(context).size.height * 0.47.h
+                  : MediaQuery.of(context).size.height * 0.60.h,
               width: double.infinity,
               child: Stack(
                 children: [
                   WebView(
-                    initialUrl: "https://www.youtube.com/embed/9DPusaWygNo",
+                    initialUrl: '${widget.link}',
                     javascriptMode: JavascriptMode.unrestricted,
                     onWebViewCreated: (WebViewController webViewController) {
                       _controller.complete(webViewController);
@@ -98,7 +108,7 @@ class _LiveScreen2State extends State<LiveScreen2> {
                       : Stack(),
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),
